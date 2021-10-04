@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.Registration">
+    <ContentPage.Resources>
+        <StyleSheet Source="..\mystyles.css" />
+    </ContentPage.Resources>
+    <RelativeLayout>
+
+        <Grid   RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent,
+                Property=Height, Factor=0, Constant=0}" BackgroundColor="#BABACA" RelativeLayout.HeightConstraint="800"
+              RelativeLayout.WidthConstraint="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <BoxView  CornerRadius="0, 0 , 40, 40"
+                 BackgroundColor="#1B1B40" Grid.Column="0" Grid.Row="0" />
+            <!--<Image Source="{local : ImageResource App1.Image.logo.jpg}" Grid.Column="0" Grid.Row="0"/>-->
+        </Grid>
+
+        <BoxView WidthRequest="350" HeightRequest="400" 
+                 Color="White"
+              RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=250}"
+               CornerRadius="40, 40 , 40, 40"
+               RelativeLayout.XConstraint= "25"/>
+        <Label Text="Регистрация" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=100}"
+               RelativeLayout.XConstraint= "140" 
+               StyleClass="H" />
+        <Label Text="Фио"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=300}"
+               TextColor="Black"
+               FontSize="10"
+               RelativeLayout.XConstraint= "60"/>
+
+        <Entry x:Name="Name" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=310}"
+               RelativeLayout.XConstraint= "60" WidthRequest="270"/>
+
+        <Label Text="Дата"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=360}"
+               TextColor="Black"
+               FontSize="10"
+               RelativeLayout.XConstraint= "60"/>
+        <Entry x:Name="Data" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=370}"
+               RelativeLayout.XConstraint= "60" WidthRequest="270"/>
+        
+        
+
+
+        <Button Text = "Войти" FontSize="20" BorderWidth="1" FontAttributes="Bold" ClassId="Next"
+        RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=480}"
+               RelativeLayout.XConstraint= "150" CornerRadius="20" 
+         />
+        <Button Text = "Зарегистрироваться" FontSize="12"   FontAttributes="Bold" ClassId="But2"  BorderColor="White"
+                RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=550}"
+               RelativeLayout.XConstraint= "115" 
+        />
+    </RelativeLayout>
+</ContentPage>
