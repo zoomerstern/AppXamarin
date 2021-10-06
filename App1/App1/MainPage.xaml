@@ -54,7 +54,7 @@
 
         <Button Text = "Войти" FontSize="20" BorderWidth="1" FontAttributes="Bold" ClassId="Next"
         RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=480}"
-               RelativeLayout.XConstraint= "150" CornerRadius="20" 
+               RelativeLayout.XConstraint= "150" CornerRadius="20" Clicked="ResultButton_Click"
          />
         <Button Text = "Зарегистрироваться" FontSize="12"   FontAttributes="Bold" ClassId="But2"  BorderColor="White"
                 RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=550}"

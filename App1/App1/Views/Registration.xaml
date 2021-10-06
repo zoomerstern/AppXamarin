@@ -29,33 +29,45 @@
                CornerRadius="40, 40 , 40, 40"
                RelativeLayout.XConstraint= "25"/>
         <Label Text="Регистрация" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=100}"
-               RelativeLayout.XConstraint= "140" 
+               RelativeLayout.XConstraint= "50" 
                StyleClass="H" />
+
         <Label Text="Фио"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=300}"
                TextColor="Black"
                FontSize="10"
                RelativeLayout.XConstraint= "60"/>
-
-        <Entry x:Name="Name" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=310}"
+        <Entry x:Name="name" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=310}"
                RelativeLayout.XConstraint= "60" WidthRequest="270"/>
 
         <Label Text="Дата"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=360}"
                TextColor="Black"
                FontSize="10"
                RelativeLayout.XConstraint= "60"/>
-        <Entry x:Name="Data" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=370}"
+        <DatePicker Format="D"  x:Name="createdon"
+               RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=370}"
+               RelativeLayout.XConstraint= "60" WidthRequest="270">
+            <DatePicker.MaximumDate>01/01/2003</DatePicker.MaximumDate>
+        </DatePicker>
+
+        
+        <Label Text="Адрес"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=420}"
+               TextColor="Black"
+               FontSize="10"
+               RelativeLayout.XConstraint= "60"/>
+        <Entry x:Name="adress" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=420}"
                RelativeLayout.XConstraint= "60" WidthRequest="270"/>
-        
-        
+
+        <Label Text="Ссылки на соцсети"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=470}"
+               TextColor="Black"
+               FontSize="10"
+               RelativeLayout.XConstraint= "60"/>
+        <Entry x:Name="socialLinks" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=470}"
+               RelativeLayout.XConstraint= "60" WidthRequest="270"/>
 
 
-        <Button Text = "Войти" FontSize="20" BorderWidth="1" FontAttributes="Bold" ClassId="Next"
-        RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=480}"
-               RelativeLayout.XConstraint= "150" CornerRadius="20" 
-         />
-        <Button Text = "Зарегистрироваться" FontSize="12"   FontAttributes="Bold" ClassId="But2"  BorderColor="White"
-                RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=550}"
-               RelativeLayout.XConstraint= "115" 
-        />
+        <Button Text = "Далее" FontSize="20" BorderWidth="1" FontAttributes="Bold" ClassId="Next" x:Name="Next" Clicked="NextButton_Click"
+        RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=580}"
+               RelativeLayout.XConstraint= "150" CornerRadius="20" />
+        
     </RelativeLayout>
 </ContentPage>
