@@ -88,20 +88,7 @@ namespace App1.ModelViews
         }
         public async void GetUser()
         {
-            
             SelectUser = await server.GetUser("Bearer="+Token.token);
-            //Friend friend = friendObject as Friend;
-            //if (friend != null)
-            //{
-            //    IsBusy = true;
-            //    Friend deletedFriend = await friendsService.Delete(friend.Id);
-            //    if (deletedFriend != null)
-            //    {
-            //        Friends.Remove(deletedFriend);
-            //    }
-            //    IsBusy = false;
-            //}
-
         }
         public async void GetToken(string login, string password)
         {
