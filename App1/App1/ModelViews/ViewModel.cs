@@ -88,7 +88,7 @@ namespace App1.ModelViews
         }
         public async void GetUser()
         {
-            SelectUser = await server.GetUser("Bearer="+Token.token);
+            SelectUser = await server.GetUser(Token.token);
         }
         public async void GetToken(string login, string password)
         {
