@@ -24,30 +24,22 @@ namespace App1.ModelViews
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             return client;
         }
-
-        // получаем пользователя
-        public async Task<User> GetUser()
+        //Получаем токен
+        public async Task<payload> GetToken(string login, string password)
         {
             HttpClient client = GetClient();
-            string result = await client.GetStringAsync(Url+"api / token /");
+            var result = await client.GetStringAsync(Url + "api/token/index?login=" + login + "&password=" + password);//(Url + "api/token/index?login=\"" + login + "\"&password=\"" + password+ "\"");
+            return JsonSerializer.Deserialize <payload>(result, options);
+        }
+
+        // получаем пользователя
+        public async Task<User> GetUser(string token)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url+"api/user/get-profile?"+token);
             return JsonSerializer.Deserialize<User>(result, options);
         }
 
-        // добавляем пользователя
-        public async Task<User> Add(User friend)
-        {
-            HttpClient client = GetClient();
-            var response = await client.PostAsync(Url+ "/api/user/",
-                new StringContent(
-                    JsonSerializer.Serialize(friend),
-                    Encoding.UTF8, "application/json"));
 
-            if (response.StatusCode != HttpStatusCode.OK)
-                return null;
-
-            return JsonSerializer.Deserialize<User>(
-                await response.Content.ReadAsStringAsync(), options);
-        }
-        
     }
 }
