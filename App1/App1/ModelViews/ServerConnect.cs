@@ -36,7 +36,7 @@ namespace App1.ModelViews
         public async Task<User> GetUser(string token)
         {
             HttpClient client = GetClient();
-            string result = await client.GetStringAsync(Url+"api/user/get-profile?"+token);
+            string result = await client.GetStringAsync(Url+"api/user/get-profile?Bearer="+token);
             return JsonSerializer.Deserialize<User>(result, options);
         }
 
