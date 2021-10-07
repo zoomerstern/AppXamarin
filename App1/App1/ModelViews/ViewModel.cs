@@ -81,7 +81,7 @@ namespace App1.ModelViews
                         email = value.email
                         //phone = value.phone
                     };
-                    selectUser = null;
+                    //selectUser = null;
                     OnPropertyChanged("selectUser");
                     
                 }
