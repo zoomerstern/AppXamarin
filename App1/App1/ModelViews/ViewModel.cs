@@ -60,8 +60,9 @@ namespace App1.ModelViews
                         timeleft = value.timeleft
                         //phone = value.phone
                     };
-                    token = null;
+                    //token = null;
                     OnPropertyChanged("token");
+                    //Navigation.PushAsync(new Result(tok, this));
 
                 }
             }
