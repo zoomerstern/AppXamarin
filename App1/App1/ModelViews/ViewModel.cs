@@ -58,7 +58,6 @@ namespace App1.ModelViews
                         id_user = value.id_user,
                         token = value.token,
                         timeleft = value.timeleft
-                        //phone = value.phone
                     };
                     //token = null;
                     OnPropertyChanged("token");
