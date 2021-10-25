@@ -15,7 +15,7 @@ namespace App1.ModelViews
         // настройки для десериализации для нечувствительности к регистру символов
         JsonSerializerOptions options = new JsonSerializerOptions
         {
-            PropertyNameCaseInsensitive = true,
+            PropertyNameCaseInsensitive = true
         };
         // настройка клиента
         private HttpClient GetClient()
@@ -25,11 +25,25 @@ namespace App1.ModelViews
             return client;
         }
         //Получаем токен
-        public async Task<payload> GetToken(string login, string password)
+        public async Task<Response<payload>> GetToken(string login, string password)
         {
             HttpClient client = GetClient();
             var result = await client.GetStringAsync(Url + "api/token/index?login=" + login + "&password=" + password);//(Url + "api/token/index?login=\"" + login + "\"&password=\"" + password+ "\"");
-            return JsonSerializer.Deserialize <payload>(result, options);
+            //var content = "login = " + login + " & password = " + password;
+
+            //var response = await client.PostAsync(Url,
+            //    new StringContent(
+            //        JsonSerializer.Serialize(content),
+            //        Encoding.UTF8, "application/json"));
+
+
+            //if (response.StatusCode != HttpStatusCode.OK)
+            //    return null;
+
+            //return JsonSerializer.Deserialize<Response<payload>>(
+            //    await response.Content.ReadAsStringAsync(), options);
+            return  JsonSerializer.Deserialize< Response<payload>>(result, options);
+
         }
 
         // получаем пользователя

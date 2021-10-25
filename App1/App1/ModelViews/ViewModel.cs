@@ -11,6 +11,10 @@ namespace App1.ModelViews
 {
     public class ViewModel : INotifyPropertyChanged
     {
+        public string login= "youremail@mail.ru";
+        public string password= "8877cgh443F";
+
+
         bool initialized = false;   // была ли начальная инициализация
         User selectUser;  // Пользователь
         private bool isBusy;    // идет ли загрузка с сервера
@@ -40,10 +44,10 @@ namespace App1.ModelViews
 
         public ViewModel()
         {
-            selectUser = null;
+ 
             IsBusy = false;
-            //GetTokenCommand = new Command(GetToken);
-            //GetUserCommand = new Command(GetUser);
+            GetTokenCommand = new Command(GetToken);
+            GetUserCommand = new Command(GetUser);
         }
 
         public payload Token
@@ -53,16 +57,16 @@ namespace App1.ModelViews
             {
                 if (token != value)
                 {
-                    payload tok = new payload()
+                    payload result = new payload()
                     {
                         id_user = value.id_user,
                         token = value.token,
                         timeleft = value.timeleft
                         //phone = value.phone
                     };
-                    token = null;
+                    token = result;
                     OnPropertyChanged("token");
-
+                    Navigation.PushAsync(new Result(this));
                 }
             }
         }
@@ -77,12 +81,16 @@ namespace App1.ModelViews
                     {
                         id = value.id,
                         name = value.name,
-                        email = value.email
+                        surname = value.surname,
+                        middle_name = value.middle_name,
+                        adress=value.adress,
+                        brith_day=value.brith_day,
+                        email = value.email,
+                        gender = value.gender
                         //phone = value.phone
                     };
-                    selectUser = null;
+                    //selectUser = null;
                     OnPropertyChanged("selectUser");
-                    
                 }
             }
         }
@@ -103,11 +111,16 @@ namespace App1.ModelViews
             //}
 
         }
-        public async void GetToken(string login, string password)
+        public async void GetToken()
         {
-            Token = await server.GetToken(login, password);
+            if (login.Length == 0 || password.Length == 0)
+                return;
+            var result = await server.GetToken(login, password);
+            Token = result.payload;
+
+            //Token = await server.GetToken(login, password);
             //await Navigation.PushAsync(new Result(this));
-            
+
         }
         protected void OnPropertyChanged(string propName)
         {

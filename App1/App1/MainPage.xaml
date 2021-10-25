@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:App1;assembly=App1"
-             x:Class="App1.MainPage"
-             >
+             x:Class="App1.MainPage">
     <ContentPage.Resources>
         <StyleSheet Source="mystyles.css" />
     </ContentPage.Resources>
@@ -38,23 +37,23 @@
                FontSize="10"
                RelativeLayout.XConstraint= "60"/>
 
-        <Entry x:Name="Mail" Text="youremail@mail.ru" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=310}"
+        <Entry x:Name="Mail" Text="{Binding Login, Mode=TwoWay}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=310}"
                RelativeLayout.XConstraint= "60" WidthRequest="270"/>
 
-        <Label Text="Пароль"  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=360}"
+        <Label Text="Пароль"  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=360}"
                TextColor="Black"
                FontSize="10"
                RelativeLayout.XConstraint= "60"/>
 
-        <Entry x:Name="Password" Text="8877cgh443F" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=370}"
+        <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=370}"
                RelativeLayout.XConstraint= "60" WidthRequest="270"/>
         <!--<Label x:Name="Restore"  Text="Забыли пароль" HorizontalOptions="Center" FontSize="10"
                RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=420}"
                RelativeLayout.XConstraint= "250" />-->
 
         <Button Text = "Войти" FontSize="20" BorderWidth="1" FontAttributes="Bold" ClassId="Next"
-        RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=480}"
-               RelativeLayout.XConstraint= "150" CornerRadius="20" Clicked="ResultButton_Click"
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=480}"
+               RelativeLayout.XConstraint= "150" CornerRadius="20" Command="{Binding GetTokenCommand}"
          />
         <!--<Button Text = "Зарегистрироваться" FontSize="12"   FontAttributes="Bold" ClassId="But2"  BorderColor="White"
                 RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=550}"

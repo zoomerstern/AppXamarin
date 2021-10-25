@@ -13,28 +13,27 @@ namespace App1
 {
     public partial class MainPage : ContentPage
     {
-        
+
         public MainPage()
         {
             InitializeComponent();
-
+            
             var current = Connectivity.NetworkAccess;
 
             if (current != NetworkAccess.Internet)
             {
                 DisplayAlert("Уведомление", "Подключите интернет", "ОK");
-            }
-
+            }           
+            BindingContext = new ViewModel() { Navigation = this.Navigation }; ;
         }
 
-        private async void ResultButton_Click(object sender, EventArgs e)
-        {
-            string mail = Mail.Text;
-            string pass = Password.Text;
-            ViewModel model = new ViewModel();
-            model.GetToken(mail, pass);
-            //string token = server.GetToken(mail, pass);
-            await Navigation.PushAsync(new Result(model));
-        }
+        //private async void ResultButton_Click(object sender, EventArgs e)
+        //{
+        //    string mail = Mail.Text;
+        //    string pass = Password.Text;
+        //   // ViewModel model = new ViewModel();
+        //    //model.GetToken(mail, pass);
+        //    //string token = server.GetToken(mail, pass);
+        //}
     }
 }
