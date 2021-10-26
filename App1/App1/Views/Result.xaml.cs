@@ -21,7 +21,7 @@ namespace App1.Views
             this.model = model;
             //this.model.token = token;
             BindingContext = model;
-            //model.GetUser();
+            this.model.GetUser();
             //Name.Text = model.SelectUser.name;
             //Mail.Text = model.SelectUser.email;
             //await model.GetUserCommand();
